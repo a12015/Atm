@@ -117,7 +117,11 @@ public class MainActivity extends Activity {
                 Intent intent = new Intent(MainActivity.this, FuncActivity.class);
                 startActivity(intent);
             }else{
-
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("登入訊息")
+                        .setMessage("登入失敗")
+                        .setPositiveButton("OK", null)
+                        .show();
             }
         }
     }
