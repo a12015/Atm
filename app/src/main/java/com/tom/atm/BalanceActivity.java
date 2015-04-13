@@ -1,6 +1,7 @@
 package com.tom.atm;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +13,11 @@ public class BalanceActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_balance);
+        SharedPreferences setting = getSharedPreferences("atm", MODE_PRIVATE);
+        String userid = setting.getString("USERID", "");
+        String passwd = setting.getString("PASSWD", "");
+
+
     }
 
 

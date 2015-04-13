@@ -114,6 +114,12 @@ public class MainActivity extends Activity {
         protected void onPostExecute(Integer integer) {
             super.onPostExecute(integer);
             if (integer==49){
+                getSharedPreferences("atm", MODE_PRIVATE).edit()
+                        .putString("USERID", userid.getText().toString())
+                        .putString("PASSWD", passwd.getText().toString())
+                        .commit();
+
+
                 Intent intent = new Intent(MainActivity.this, FuncActivity.class);
                 startActivity(intent);
             }else{
