@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -82,6 +84,15 @@ public class HistoryActivity extends Activity {
                     row.put("userid", userid);
                     bag.add(row);
                 }
+                ListView list = (ListView) findViewById(R.id.list);
+                String[] from = {"date", "amount"};  //keys
+                int[] to = {android.R.id.text1, android.R.id.text2};
+                SimpleAdapter adapter = new SimpleAdapter(
+                       HistoryActivity.this,
+                        bag, android.R.layout.simple_list_item_2, from, to
+                );
+                list.setAdapter(adapter);
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
