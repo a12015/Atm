@@ -85,11 +85,11 @@ public class HistoryActivity extends Activity {
                     bag.add(row);
                 }
                 ListView list = (ListView) findViewById(R.id.list);
-                String[] from = {"date", "amount"};  //keys
-                int[] to = {android.R.id.text1, android.R.id.text2};
+                String[] from = {"date", "amount", "userid"};  //keys
+                int[] to = {R.id.row_date, R.id.row_amount, R.id.row_userid};
                 SimpleAdapter adapter = new SimpleAdapter(
                        HistoryActivity.this,
-                        bag, android.R.layout.simple_list_item_2, from, to
+                        bag, R.layout.row, from, to
                 );
                 list.setAdapter(adapter);
 
