@@ -8,6 +8,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -59,6 +63,20 @@ public class HistoryActivity extends Activity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
 
+            try {
+                JSONArray array = new JSONArray(s);
+                
+                for (int i=0; i <array.length(); i++){
+                    JSONObject obj = array.getJSONObject(i);
+                    int amount = obj.getInt("amount");
+                    String date = obj.getString("date");
+                    String userid = obj.getString("userid");
+                    Log.d("HIST", amount+"/"+date+"/"+userid);
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
