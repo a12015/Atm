@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,13 +38,14 @@ public class BalanceActivity extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
+            String line = null;
             try {
                 URL url = new URL(params[0]);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 InputStream is = conn.getInputStream();
                 InputStreamReader isr = new InputStreamReader(is);
                 BufferedReader in = new BufferedReader(isr);
-                String line = in.readLine();
+                line = in.readLine();
                 Log.d("NET", line);
 
             } catch (MalformedURLException e) {
@@ -48,13 +53,21 @@ public class BalanceActivity extends Activity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            return null;
+            return line;
         }
 
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            try {
+                JSONObject obj = new JSONObject(s);
+                int b = obj.getInt("balance");
+                TextView balance = (TextView)findViewById(R.id.balance);
+                balance.setText(b+"");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
