@@ -19,6 +19,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class HistoryActivity extends Activity {
@@ -65,13 +69,18 @@ public class HistoryActivity extends Activity {
 
             try {
                 JSONArray array = new JSONArray(s);
-                
+                List bag = new ArrayList<Map<String,String>>();
                 for (int i=0; i <array.length(); i++){
                     JSONObject obj = array.getJSONObject(i);
                     int amount = obj.getInt("amount");
                     String date = obj.getString("date");
                     String userid = obj.getString("userid");
                     Log.d("HIST", amount+"/"+date+"/"+userid);
+                    Map row = new HashMap<String, String>();
+                    row.put("amount", amount);
+                    row.put("date", date);
+                    row.put("userid", userid);
+                    bag.add(row);
                 }
 
             } catch (JSONException e) {
