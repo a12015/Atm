@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tom.atm" >
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,6 +29,10 @@
         <activity
             android:name=".HistoryActivity"
             android:label="@string/title_activity_history" >
+        </activity>
+        <activity
+            android:name=".GoogleActivity"
+            android:label="@string/title_activity_google" >
         </activity>
     </application>
 
