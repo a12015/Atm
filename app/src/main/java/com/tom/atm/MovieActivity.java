@@ -33,7 +33,7 @@ public class MovieActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie);
+        setContentView(R.layout.frame_test);
         new MovieTask().execute("http://j.snpy.org/movie.php");
     }
 
@@ -103,9 +103,9 @@ public class MovieActivity extends Activity {
             SimpleAdapter adapter = new SimpleAdapter(MovieActivity.this,
                     data, R.layout.movie_row, from, to
             );
-            ListView list = (ListView)findViewById(R.id.movie_list);
+            ListView list = (ListView)findViewById(R.id.listView);
             list.setAdapter(adapter);
-            ProgressBar bar = (ProgressBar) findViewById(R.id.progressBar);
+            ProgressBar bar = (ProgressBar) findViewById(R.id.progressBar2);
             bar.setVisibility(View.GONE);
         }
     }
