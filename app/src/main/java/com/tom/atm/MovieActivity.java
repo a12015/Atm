@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 
 import org.json.JSONArray;
@@ -103,8 +105,8 @@ public class MovieActivity extends Activity {
             );
             ListView list = (ListView)findViewById(R.id.movie_list);
             list.setAdapter(adapter);
-
-
+            ProgressBar bar = (ProgressBar) findViewById(R.id.progressBar);
+            bar.setVisibility(View.GONE);
         }
     }
 
