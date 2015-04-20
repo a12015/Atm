@@ -19,14 +19,14 @@ public class FuncActivity extends Activity implements AdapterView.OnItemClickLis
 
     private GridView grid;
     private String[] names;
-    int[] icons = {R.drawable.func_balance, R.drawable.func_history,R.drawable.func_03,R.drawable.func_google,R.drawable.func_05,};
+    int[] icons = {R.drawable.func_balance, R.drawable.func_history,R.drawable.func_movie,R.drawable.func_google,R.drawable.func_05,};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_func);
         findViews();
-        names = new String[]{"餘額查詢", "交易明細","轉帳","Google","離開"};
+        names = new String[]{"餘額查詢", "交易明細","Movie","Google","離開"};
 
 //        ArrayAdapter adapter = new ArrayAdapter(this,
 //               android.R.layout.simple_list_item_1, names);
@@ -52,6 +52,10 @@ public class FuncActivity extends Activity implements AdapterView.OnItemClickLis
             case R.drawable.func_google:
                 Intent google = new Intent(this, GoogleActivity.class);
                 startActivity(google);
+                break;
+            case R.drawable.func_movie:
+                Intent movie = new Intent(this, MovieActivity.class);
+                startActivity(movie);
                 break;
         }
 

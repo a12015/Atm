@@ -34,6 +34,10 @@
             android:name=".GoogleActivity"
             android:label="@string/title_activity_google" >
         </activity>
+        <activity
+            android:name=".MovieActivity"
+            android:label="@string/title_activity_movie" >
+        </activity>
     </application>
 
 </manifest>
